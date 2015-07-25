@@ -1,0 +1,43 @@
+{
+	"name": "tomzx/abstract-parser",
+	"description": "An abstract parser written in PHP",
+	"type": "library",
+	"keywords": [
+		"parser",
+		"visitor",
+		"traversal"
+	],
+	"homepage": "https://github.com/tomzx/abstract-parser",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Tom Rochette",
+			"email": "tom@tomrochette.com",
+			"homepage": "http://www.tomrochette.com"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/tomzx/abstract-parser/issues"
+	},
+	"require": {
+		"php": ">=5.4.0"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "~4"
+	},
+	"autoload": {
+		"psr-4": {
+			"tomzx\\AbstractParser\\": "src/tomzx/AbstractParser"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"tomzx\\AbstractParser\\Test\\": "tests/tomzx/AbstractParser"
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "0.1-dev"
+		}
+	}
+}
