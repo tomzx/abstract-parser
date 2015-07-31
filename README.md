@@ -10,6 +10,26 @@
 
 An abstract parser written in PHP. Based on [nikic's PHP Parser](https://github.com/nikic/PHP-Parser).
 
+## Getting started
+
+`Abstract parser` offers 2 interfaces which you'll want to implement:
+
+* `NodeInterface`: A basic interface for all of the elements of your tree structured data structure.
+* `NodeVisitorInterface`: Actions to execute when entering/exiting a `NodeInterface` element or at the beginning/end of a traversal.
+
+Once you have implemented the `NodeInterface` for your data elements, you can walk through them using something like the following:
+
+```php
+<?php
+
+$rootElement = ...; // Root element of your data structure
+
+$traverser = new NodeTraverser();
+$traverser->addVisitor(new MyVisitor());
+
+$traverser->traverse([$rootElement]);
+```
+
 ## License
 
 The code is licensed under the [MIT license](http://choosealicense.com/licenses/mit/). See [LICENSE](LICENSE).
