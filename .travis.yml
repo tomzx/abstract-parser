@@ -19,5 +19,5 @@ script:
 after_script:
     - wget https://scrutinizer-ci.com/ocular.phar
     - php ocular.phar code-coverage:upload --format=php-clover log/coverage.xml
-    - wget https://psvcg.coreteks.org/php-semver-checker-git.phar
+    - wget http://psvcg.coreteks.org/php-semver-checker-git.phar
     - php php-semver-checker-git.phar suggest -vvv
