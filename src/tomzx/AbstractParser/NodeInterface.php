@@ -5,7 +5,7 @@ namespace tomzx\AbstractParser;
 interface NodeInterface
 {
     /**
-     * @return NodeInterface[]
+     * @return \tomzx\AbstractParser\NodeInterface[]
      */
     public function getChildren();
 

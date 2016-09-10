@@ -5,15 +5,23 @@ namespace tomzx\AbstractParser;
 class NodeTraverser implements NodeTraverserInterface
 {
     /**
-     * @var NodeVisitorInterface[]
+     * @var \tomzx\AbstractParser\NodeVisitorInterface[]
      */
     protected $visitors = [];
 
+    /**
+     * @param \tomzx\AbstractParser\NodeVisitorInterface $visitor
+     * @return void
+     */
     public function addVisitor(NodeVisitorInterface $visitor)
     {
         $this->visitors[] = $visitor;
     }
 
+    /**
+     * @param \tomzx\AbstractParser\NodeVisitorInterface $visitor
+     * @return void
+     */
     public function removeVisitor(NodeVisitorInterface $visitor)
     {
         foreach ($this->visitors as $index => $storedVisitor) {
@@ -24,6 +32,10 @@ class NodeTraverser implements NodeTraverserInterface
         }
     }
 
+    /**
+     * @param array $nodes
+     * @return array
+     */
     public function traverse(array $nodes)
     {
         foreach ($this->visitors as $visitor) {
@@ -43,6 +55,10 @@ class NodeTraverser implements NodeTraverserInterface
         return $nodes;
     }
 
+    /**
+     * @param array $nodes
+     * @return array
+     */
     protected function traverseArray(array &$nodes)
     {
         $replaceNodes = [];
@@ -79,7 +95,7 @@ class NodeTraverser implements NodeTraverserInterface
             }
         }
 
-        if (!empty($replaceNodes)) {
+        if ( ! empty($replaceNodes)) {
             while (list($index, $replace) = array_pop($replaceNodes)) {
                 array_splice($nodes, $index, 1, $replace);
             }
